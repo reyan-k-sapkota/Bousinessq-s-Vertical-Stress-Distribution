@@ -9,44 +9,42 @@
 </head>
 <body>
     
-    <h1 class="text-3xl font-bold text-center mt-10">
-        Bousinesq's Vertical Stress Distribution
-      </h1>
+    <div class="flex flex-col min-h-screen">
 
-    <div id="chart-main" class = "flex items-center justify-center h-screen">
-        <canvas id="chart" width="1400" height="600" style = "border:3px solid red">
-        </canvas>
-    </div>
-
-    <div>
-        <div class = "ml-10 mb-10">
-            <label for="radial-distance">Radial Distance(m)</label>
-            <input type="range" min=0 max=10 value=1 class="slider" id="radial"
-                oninput='document.getElementById("radialVal").innerHTML=this.value;  update_chart (this.value, document.getElementById("vertical").valueAsNumber, document.getElementById("load").valueAsNumber)'>
+        <h1 class="text-3xl font-bold text-center mt-10 mb-6 px-4"> Boussinesq's Vertical Stress Distribution </h1>
+      
+        <div id="chart-main" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-64 sm:h-screen flex items-center justify-center">
+          <canvas id="chart" class="w-full h-full" style="border:3px solid red"></canvas>
+        </div>
+      
+        
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 mb-10">
+      
+          
+          <div class="flex flex-col space-y-2">
+            <label for="radial" class="font-medium">Radial Distance (m)</label>
+            <input type="range" id="radial" min="0" max="10" value="1" class="w-full" oninput="document.getElementById('radialVal').innerText=this.value; update_chart(this.valueAsNumber, document.getElementById('vertical').valueAsNumber, document.getElementById('load').valueAsNumber)">
             <span id="radialVal">1</span>
-        </div>
-    </div>
-
-    <div>
-        <div class = "ml-10 mb-10">
-            <label for="vertical-distance">Vertical Underground Distance(m)</label>
-            <input type="range" min=1 max=15 value=10 class="slider" id="vertical"
-                oninput='document.getElementById("verticalVal").innerHTML=this.value; update_chart (document.getElementById("radial").valueAsNumber, this.value, document.getElementById("load").valueAsNumber)'>
+          </div>
+      
+          
+          <div class="flex flex-col space-y-2">
+            <label for="vertical" class="font-medium">Vertical Distance (m)</label>
+            <input type="range" id="vertical" min="1" max="15" value="10" class="w-full" oninput="document.getElementById('verticalVal').innerText=this.value; update_chart(document.getElementById('radial').valueAsNumber,this.valueAsNumber, document.getElementById('load').valueAsNumber)">
             <span id="verticalVal">10</span>
+          </div>
+      
+          
+          <div class="flex flex-col space-y-2">
+            <label for="load" class="font-medium">Vertical Load (kN)</label>
+            <input type="range" id="load" min="1" max="1000" value="1" class="w-full" oninput="document.getElementById('verticalloadVal').innerText=this.value; update_chart(document.getElementById('radial').valueAsNumber, document.getElementById('vertical').valueAsNumber,this.valueAsNumber)">
+            <span id="verticalloadVal">1</span> kN
+          </div>
+      
         </div>
-    </div>
+      
+      </div>
+      <script src="canvas.js"></script>     
 
-    <div>
-        <div class = "ml-10 mb-10">
-            <label for="vertical-load">Vertical Load (kN)</label>
-            <input type="range" min=1 max=1000 value=1 class="slider" id="load"
-                oninput='document.getElementById("verticalloadVal").innerHTML=this.value; update_chart (document.getElementById("radial").valueAsNumber, document.getElementById("vertical").valueAsNumber, this.value)'>
-            <span id="verticalloadVal">1 </span> <span>kN</span>
-        </div>
-    </div>
-
-    
-
-    <script src = "canvas.js"></script>
 </body>
 </html>

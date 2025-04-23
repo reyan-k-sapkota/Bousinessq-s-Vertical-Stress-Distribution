@@ -57,7 +57,7 @@ function update_chart(r, z, Q){
       };
     
       const config = {
-        type: 'line', // Use scatter to allow X/Y points freely
+        type: 'line', 
         data: data,
         options: {
           responsive: false,
@@ -65,7 +65,7 @@ function update_chart(r, z, Q){
             x: {
                 type: 'linear',
                 position:'top',
-              reverse: false, // Positive x goes to the left
+              reverse: false, 
               min: 0,
               max: maxX+0.2*maxX,
               grid: {
@@ -85,7 +85,7 @@ function update_chart(r, z, Q){
 
 
             y: {
-              reverse: true, // Positive y goes down
+              reverse: true, 
               min: 0,
               max: z,
               grid: {
@@ -119,69 +119,3 @@ function update_chart(r, z, Q){
 }
 
 update_chart(1, 10, 1)
-
-/** 
-const data = {
-    datasets: [{
-      label: 'Line Dataset',
-      data: [
-        { x: 0.0064, y: 0.25 },
-        { x: 0.0340, y: 0.5 },
-        { x: 0.0844, y: 1 },
-        { x: 0.0683, y: 2 },
-        { x: 0.0407, y: 3 },
-        { x: 0.0256, y: 4 },
-        { x: 0.017, y: 5 },
-      ],
-      borderColor: 'rgba(255, 99, 132, 1)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      showLine: true,
-      fill: false,
-      tension: 0.3
-    }]
-  };
-
-  const config = {
-    type: 'line', // Use scatter to allow X/Y points freely
-    data: data,
-    options: {
-      responsive: false,
-      scales: {
-        x: {
-            type: 'linear',
-            position:'top',
-          reverse: false, // Positive x goes to the left
-          min: 0,
-          max: 0.1,
-          grid: {
-            drawOnChartArea: true
-          },
-          ticks: {
-            stepSize: 0.01,
-            callback: function(value) {
-                return value+ 'Q' ; // ✅ Label as "Q50", "Q100", etc.
-              }
-          }
-        },
-        y: {
-          reverse: true, // Positive y goes down
-          min: 0,
-          max: 10,
-          grid: {
-            drawOnChartArea: true
-          },
-          ticks: {
-            stepSize: 0.5
-          }
-        }
-      },
-      plugins: {
-        legend: {
-          display: false
-        }
-      }
-    }
-  };
-
-  const myChart = new Chart(ctx, config);
-  */

@@ -1,6 +1,4 @@
 const PI = 3.141592653589793;
-const row = 1;
-const column = 2;
 
 let IB, Q, z, sigma, r, currentSliderValue, r_scale, Q_scale;
 
@@ -60,7 +58,8 @@ function update_chart(r, z, Q){
         type: 'line', 
         data: data,
         options: {
-          responsive: false,
+          responsive: true,
+          maintainAspectRatio: false,
           scales: {
             x: {
                 type: 'linear',
@@ -119,3 +118,4 @@ function update_chart(r, z, Q){
 }
 
 update_chart(1, 10, 1)
+
